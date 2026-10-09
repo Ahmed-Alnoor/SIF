@@ -156,9 +156,8 @@ html[lang=ar] .card-t{font:400 clamp(1.3rem,.6vw + 1.1rem,1.6rem)/1.5 var(--ar)}
 .req{margin-inline-start:4px;font-style:normal;font-weight:500;color:#9c3b22}
 .lead-form{margin-top:10px}
 .f{display:block;margin-top:14px;min-width:0}
-.f .lb,.chips legend{display:block;margin-bottom:7px;font:500 9.5px/1.1 var(--font);letter-spacing:.2em;text-transform:uppercase;color:var(--ink-2)}
-html[lang=ar] .f .lb,html[lang=ar] .chips legend{font:400 12.5px/1.3 var(--ar)}
-.f2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+.f .lb{display:block;margin-bottom:7px;font:500 9.5px/1.1 var(--font);letter-spacing:.2em;text-transform:uppercase;color:var(--ink-2)}
+html[lang=ar] .f .lb{font:400 12.5px/1.3 var(--ar)}
 .field{width:100%;height:50px;padding:0 15px;border-radius:var(--r);border:1px solid var(--line-2);background:#d2bca138;color:var(--ink);font:400 16px/1 var(--font);outline:none;-webkit-appearance:none;appearance:none;transition:border-color .3s,box-shadow .3s,background-color .3s}
 html[lang=ar] .field{font-family:var(--ar)}
 .field::placeholder{color:#8a7a6b}
@@ -166,7 +165,6 @@ html[lang=ar] .field{font-family:var(--ar)}
 .field:focus{border-color:var(--bronze);background-color:#fbf9f5;box-shadow:0 0 0 4px #8f765733}
 select.field{cursor:pointer;padding-inline-end:34px;text-overflow:ellipsis;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%232E231A' stroke-width='1.3'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
 html[dir=rtl] select.field{background-position:left 14px center}
-select.field:has(option[value=""]:checked){color:#9a8a7b}
 select.field option{color:var(--ink)}
 input[type=email].field,input[type=tel].field{direction:ltr}
 html[dir=rtl] input[type=email].field{text-align:right}
@@ -180,17 +178,6 @@ html[dir=rtl] .tel input{text-align:right}
 .f.has-err .field{border-color:#b9573c}
 .f.has-err .msg{display:block}
 
-.chips{margin-top:16px}
-.chip-list{display:flex;flex-wrap:wrap;gap:6px}
-.chip{position:relative;display:inline-flex}
-.chip input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
-.chip span{display:inline-flex;align-items:center;gap:8px;min-height:34px;padding:6px 12px;border:1px solid var(--line-2);border-radius:var(--r);background:#d2bca12e;font:400 13px/1.3 var(--font);color:var(--ink-2);transition:background-color .3s,border-color .3s,color .3s}
-html[lang=ar] .chip span{font:400 13px/1.55 var(--ar)}
-.chip span:before{content:"";width:6px;height:6px;flex:none;border:1px solid currentColor;transform:rotate(45deg);transition:background-color .3s}
-.chip:hover input:not(:checked)+span{border-color:var(--bronze);color:var(--bronze)}
-.chip input:checked+span{background:var(--btn);border-color:var(--btn);color:var(--cream)}
-.chip input:checked+span:before{background:currentColor}
-.chip input:focus-visible+span{outline:2px solid var(--bronze);outline-offset:2px}
 
 .go{margin-top:24px}
 .consent{margin-top:12px;font-size:11px;line-height:1.55;color:var(--ink-2)}
@@ -284,75 +271,12 @@ html[lang=ar] .partner-q{max-width:44ch;font:400 clamp(1.02rem,.7vw + .8rem,1.3r
           <p class="card-s"><span data-i18n="form.s">Only your email and mobile number are required.</span><i class="req" aria-hidden="true">*</i></p>
           <form class="lead-form" id="leadForm" method="post" novalidate>
             <input class="hp" type="text" name="sif_hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-            <div class="f2">
-              <label class="f"><span class="lb" data-i18n="f.first">First name</span><input class="field" name="first_name" type="text" maxlength="60" autocomplete="given-name"></label>
-              <label class="f"><span class="lb" data-i18n="f.last">Last name</span><input class="field" name="last_name" type="text" maxlength="60" autocomplete="family-name"></label>
-            </div>
+            <label class="f"><span class="lb" data-i18n="f.name">Full name</span><input class="field" name="name" type="text" maxlength="80" autocomplete="name"></label>
             <label class="f"><span class="lb"><span data-i18n="f.email">Email address</span><i class="req" aria-hidden="true">*</i></span><input class="field" id="email" name="email" type="email" maxlength="120" autocomplete="email" inputmode="email" required placeholder="you@example.ae"><em class="msg" data-i18n="e.email">Please enter a valid email address</em></label>
             <div class="f"><span class="lb"><span data-i18n="f.phone">Mobile number</span><i class="req" aria-hidden="true">*</i></span>
               <div class="tel"><select class="field" name="cc" aria-label="Country code" data-i18n-aria="a.cc"></select><input class="field" name="phone" type="tel" maxlength="20" inputmode="tel" autocomplete="tel-national" required placeholder="50 123 4567" aria-label="Mobile number" data-i18n-aria="a.phone"></div>
               <em class="msg" data-i18n="e.phone">Please enter a valid mobile number</em>
             </div>
-            <div class="f2">
-              <label class="f"><span class="lb" data-i18n="f.type">Registration type</span>
-                <select class="field" name="registration_type">
-                  <option value="" data-i18n="sel">Select…</option>
-                  <option value="Visitor" data-i18n="rt.1">Visitor</option>
-                  <option value="Investor" data-i18n="rt.2">Investor</option>
-                  <option value="Business owner / Entrepreneur" data-i18n="rt.3">Business owner / Entrepreneur</option>
-                  <option value="Government entity" data-i18n="rt.4">Government entity</option>
-                  <option value="Media" data-i18n="rt.5">Media</option>
-                  <option value="Academia / Student" data-i18n="rt.6">Academia / Student</option>
-                  <option value="Other" data-i18n="other">Other</option>
-                </select></label>
-              <label class="f"><span class="lb" data-i18n="f.gender">Gender</span>
-                <select class="field" name="gender">
-                  <option value="" data-i18n="sel">Select…</option>
-                  <option value="Male" data-i18n="g.m">Male</option>
-                  <option value="Female" data-i18n="g.f">Female</option>
-                </select></label>
-            </div>
-            <label class="f"><span class="lb" data-i18n="f.company">Company / organisation</span><input class="field" name="company" type="text" maxlength="120" autocomplete="organization"></label>
-            <div class="f2">
-              <label class="f"><span class="lb" data-i18n="f.job">Job title</span><input class="field" name="job_title" type="text" maxlength="100" autocomplete="organization-title"></label>
-              <label class="f"><span class="lb" data-i18n="f.nat">Nationality</span><select class="field" name="nationality" id="nat"><option value="" data-i18n="sel">Select…</option></select></label>
-            </div>
-            <label class="f"><span class="lb" data-i18n="f.ind">Company industry</span>
-              <select class="field" name="industry">
-                <option value="" data-i18n="sel">Select…</option>
-                <option value="Real estate & construction" data-i18n="in.1">Real estate &amp; construction</option>
-                <option value="Banking & finance" data-i18n="in.2">Banking &amp; finance</option>
-                <option value="Investment & asset management" data-i18n="in.3">Investment &amp; asset management</option>
-                <option value="Technology & AI" data-i18n="in.4">Technology &amp; AI</option>
-                <option value="Industry & manufacturing" data-i18n="in.5">Industry &amp; manufacturing</option>
-                <option value="Logistics & transport" data-i18n="in.6">Logistics &amp; transport</option>
-                <option value="Energy & utilities" data-i18n="in.7">Energy &amp; utilities</option>
-                <option value="Healthcare" data-i18n="in.8">Healthcare</option>
-                <option value="Education" data-i18n="in.9">Education</option>
-                <option value="Tourism & hospitality" data-i18n="in.10">Tourism &amp; hospitality</option>
-                <option value="Retail & trade" data-i18n="in.11">Retail &amp; trade</option>
-                <option value="Government & public sector" data-i18n="in.12">Government &amp; public sector</option>
-                <option value="Media & communications" data-i18n="in.13">Media &amp; communications</option>
-                <option value="Consulting & professional services" data-i18n="in.14">Consulting &amp; professional services</option>
-                <option value="Other" data-i18n="other">Other</option>
-              </select></label>
-            <fieldset class="f chips">
-              <legend data-i18n="f.sec">Sectors of interest</legend>
-              <div class="chip-list">
-                <label class="chip"><input type="checkbox" name="sectors" value="Real estate"><span data-i18n="s.1">Real estate</span></label>
-                <label class="chip"><input type="checkbox" name="sectors" value="Infrastructure"><span data-i18n="s.2">Infrastructure</span></label>
-                <label class="chip"><input type="checkbox" name="sectors" value="Industry & manufacturing"><span data-i18n="s.3">Industry &amp; manufacturing</span></label>
-                <label class="chip"><input type="checkbox" name="sectors" value="AI & technology"><span data-i18n="s.4">AI &amp; technology</span></label>
-                <label class="chip"><input type="checkbox" name="sectors" value="Entrepreneurship & SMEs"><span data-i18n="s.5">Entrepreneurship &amp; SMEs</span></label>
-                <label class="chip"><input type="checkbox" name="sectors" value="Financial services"><span data-i18n="s.6">Financial services</span></label>
-                <label class="chip"><input type="checkbox" name="sectors" value="Logistics & connectivity"><span data-i18n="s.7">Logistics &amp; connectivity</span></label>
-                <label class="chip"><input type="checkbox" name="sectors" value="Tourism & hospitality"><span data-i18n="s.8">Tourism &amp; hospitality</span></label>
-                <label class="chip"><input type="checkbox" name="sectors" value="Energy & sustainability"><span data-i18n="s.9">Energy &amp; sustainability</span></label>
-                <label class="chip"><input type="checkbox" name="sectors" value="Healthcare"><span data-i18n="s.10">Healthcare</span></label>
-                <label class="chip"><input type="checkbox" name="sectors" value="Education & talent"><span data-i18n="s.11">Education &amp; talent</span></label>
-                <label class="chip"><input type="checkbox" name="sectors" value="Food security & agritech"><span data-i18n="s.12">Food security &amp; agritech</span></label>
-              </div>
-            </fieldset>
             <button class="btn btn-dark btn-block go" type="submit"><span class="lbl" data-i18n="f.submit">Complete registration</span><svg class="arr" viewBox="0 0 18 10" fill="none" stroke="currentColor" aria-hidden="true"><path d="M0 5h17M13 1l4 4-4 4"/></svg></button>
             <p class="f-status" role="alert" data-i18n="f.error">We couldn't send your registration. Please try again.</p>
             <p class="consent" data-i18n="f.consent">By registering, you agree to be contacted by Al Marwan Developments about the Sharjah Investment Forum 2026.</p>
@@ -427,53 +351,9 @@ html[lang=ar] .partner-q{max-width:44ch;font:400 clamp(1.02rem,.7vw + .8rem,1.3r
     "form.k": "التسجيل",
     "form.t": "احجز مقعدك في المنتدى",
     "form.s": "البريد الإلكتروني ورقم الجوال فقط إلزاميان.",
-    "f.first": "الاسم الأول",
-    "f.last": "اسم العائلة",
+    "f.name": "الاسم الكامل",
     "f.email": "البريد الإلكتروني",
     "f.phone": "رقم الجوال",
-    "f.type": "نوع التسجيل",
-    "f.gender": "الجنس",
-    "f.company": "اسم الشركة / الجهة",
-    "f.job": "المسمى الوظيفي",
-    "f.nat": "الجنسية",
-    "f.ind": "قطاع الشركة",
-    "f.sec": "القطاعات التي تهمّك",
-    "sel": "اختر…",
-    "other": "أخرى",
-    "rt.1": "زائر",
-    "rt.2": "مستثمر",
-    "rt.3": "صاحب عمل / رائد أعمال",
-    "rt.4": "جهة حكومية",
-    "rt.5": "إعلام",
-    "rt.6": "أكاديمي / طالب",
-    "g.m": "ذكر",
-    "g.f": "أنثى",
-    "in.1": "العقارات والإنشاءات",
-    "in.2": "البنوك والتمويل",
-    "in.3": "الاستثمار وإدارة الأصول",
-    "in.4": "التكنولوجيا والذكاء الاصطناعي",
-    "in.5": "الصناعة والتصنيع",
-    "in.6": "اللوجستيات والنقل",
-    "in.7": "الطاقة والمرافق",
-    "in.8": "الرعاية الصحية",
-    "in.9": "التعليم",
-    "in.10": "السياحة والضيافة",
-    "in.11": "التجزئة والتجارة",
-    "in.12": "الحكومة والقطاع العام",
-    "in.13": "الإعلام والاتصال",
-    "in.14": "الاستشارات والخدمات المهنية",
-    "s.1": "العقارات",
-    "s.2": "البنية التحتية",
-    "s.3": "الصناعة والتصنيع",
-    "s.4": "الذكاء الاصطناعي والتكنولوجيا",
-    "s.5": "ريادة الأعمال والمشاريع الصغيرة والمتوسطة",
-    "s.6": "الخدمات المالية",
-    "s.7": "اللوجستيات والربط العالمي",
-    "s.8": "السياحة والضيافة",
-    "s.9": "الطاقة والاستدامة",
-    "s.10": "الرعاية الصحية",
-    "s.11": "التعليم والمواهب",
-    "s.12": "الأمن الغذائي والتكنولوجيا الزراعية",
     "f.submit": "أكمل التسجيل",
     "f.error": "تعذّر إرسال تسجيلك، يرجى المحاولة مرة أخرى.",
     "f.consent": "بالتسجيل، فإنك توافق على تواصل المروان للتطوير معك بشأن منتدى الشارقة للاستثمار 2026.",
@@ -486,9 +366,6 @@ html[lang=ar] .partner-q{max-width:44ch;font:400 clamp(1.02rem,.7vw + .8rem,1.3r
   };
 
   var CODES = [["+971","🇦🇪"],["+966","🇸🇦"],["+965","🇰🇼"],["+974","🇶🇦"],["+973","🇧🇭"],["+968","🇴🇲"],["+20","🇪🇬"],["+962","🇯🇴"],["+961","🇱🇧"],["+964","🇮🇶"],["+91","🇮🇳"],["+92","🇵🇰"],["+44","🇬🇧"],["+1","🇺🇸"],["+7","🇷🇺"],["+86","🇨🇳"],["+49","🇩🇪"],["+33","🇫🇷"]];
-  var FIRST = ["AE","SA","KW","QA","BH","OM"];
-  var NATIONS = ("AE SA KW QA BH OM AF AL DZ AD AO AG AR AM AU AT AZ BS BD BB BY BE BZ BJ BT BO BA BW BR BN BG BF BI CV KH CM CA CF TD CL CN CO KM CG CD CR CI HR CU CY CZ DK DJ DM DO EC EG SV GQ ER EE SZ ET FJ FI FR GA GM GE DE GH GR GD GT GN GW GY HT HN HU IS IN ID IR IQ IE IL IT JM JP JO KZ KE KI KG LA LV LB LS LR LY LI LT LU MG MW MY MV ML MT MH MR MU MX FM MD MC MN ME MA MZ MM NA NR NP NL NZ NI NE NG KP MK NO PK PW PS PA PG PY PE PH PL PT RO RU RW KN LC VC WS SM ST SN RS SC SL SG SK SI SB SO ZA KR SS ES LK SD SR SE CH SY TJ TZ TH TL TG TO TT TN TR TM TV UG UA GB US UY UZ VU VA VE VN YE ZM ZW").split(" ");
-  var NAME_FIX = { PS: { en: "Palestine", ar: "فلسطين" } };
 
   var $ = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
@@ -505,26 +382,6 @@ html[lang=ar] .partner-q{max-width:44ch;font:400 clamp(1.02rem,.7vw + .8rem,1.3r
   var EN = { _title: document.title };
   $$("[data-i18n]").forEach(function (el) { if (!(el.dataset.i18n in EN)) EN[el.dataset.i18n] = el.innerHTML; });
   $$("[data-i18n-aria]").forEach(function (el) { if (!(el.dataset.i18nAria in EN)) EN[el.dataset.i18nAria] = el.getAttribute("aria-label"); });
-
-  function regionNames(l) {
-    try { return new Intl.DisplayNames([l], { type: "region" }); } catch (e) { return null; }
-  }
-  function countryName(dn, code, l) {
-    if (NAME_FIX[code]) return NAME_FIX[code][l];
-    try { return (dn && dn.of(code)) || code; } catch (e) { return code; }
-  }
-  function fillNationality() {
-    var sel = $("#nat"), keep = sel.value;
-    var dnL = regionNames(lang), dnEn = regionNames("en");
-    var items = NATIONS.map(function (c) { return { c: c, v: countryName(dnEn, c, "en"), t: countryName(dnL, c, lang) }; });
-    var top = items.filter(function (i) { return FIRST.indexOf(i.c) > -1; });
-    var rest = items.filter(function (i) { return FIRST.indexOf(i.c) < 0; })
-      .sort(function (a, b) { return a.t.localeCompare(b.t, lang); });
-    var opt = function (i) { return '<option value="' + i.v.replace(/"/g, "&quot;") + '">' + i.t + "</option>"; };
-    sel.innerHTML = '<option value="">' + (lang === "ar" ? AR.sel : EN.sel) + "</option>" +
-      top.map(opt).join("") + '<option disabled>──────────</option>' + rest.map(opt).join("");
-    sel.value = keep;
-  }
 
   function splitChars(el) {
     var text = el.textContent.trim();
@@ -547,7 +404,6 @@ html[lang=ar] .partner-q{max-width:44ch;font:400 clamp(1.02rem,.7vw + .8rem,1.3r
     btn.lang = lang === "ar" ? "en" : "ar";
     btn.setAttribute("aria-label", lang === "ar" ? "Switch to English" : "التبديل إلى العربية");
     $$("[data-chars]").forEach(splitChars);
-    fillNationality();
     tick();
     if (!first) {
       store.set("sif-lang", lang);
@@ -657,23 +513,13 @@ html[lang=ar] .partner-q{max-width:44ch;font:400 clamp(1.02rem,.7vw + .8rem,1.3r
     if (el.sif_hp.value) { setTimeout(goThankYou, 400); return; }
 
     var tel = normalisePhone(el.phone.value, el.cc.value);
-    var first = el.first_name.value.trim(), last = el.last_name.value.trim();
     var lead = Object.assign({
       project: "SIF 2026",
       sponsor: "Al Marwan Developments (Silver Sponsor)",
-      registration_type: el.registration_type.value,
-      first_name: first,
-      last_name: last,
-      name: (first + " " + last).trim(),
+      name: el.namedItem("name").value.trim(),
       email: el.email.value.trim(),
       phone: tel.phone,
       country_code: tel.cc,
-      gender: el.gender.value,
-      company: el.company.value.trim(),
-      job_title: el.job_title.value.trim(),
-      nationality: el.nationality.value,
-      industry: el.industry.value,
-      sectors: $$("input[name=sectors]:checked", form).map(function (c) { return c.value; }).join("; "),
       language: lang,
       page: location.href.split("#")[0],
       referrer: document.referrer || "",
@@ -687,7 +533,7 @@ html[lang=ar] .partner-q{max-width:44ch;font:400 clamp(1.02rem,.7vw + .8rem,1.3r
     send.then(function () {
       if (CONFIG.formEndpoint) {
         var went = false, go = function () { if (!went) { went = true; goThankYou(); } };
-        track("generate_lead", { lead_form: "sif_2026", registration_type: lead.registration_type, language: lang }, go);
+        track("generate_lead", { lead_form: "sif_2026", language: lang }, go);
         setTimeout(go, 800);
       } else {
         setTimeout(goThankYou, 200);
