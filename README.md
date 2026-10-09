@@ -1,7 +1,7 @@
 # SIF 2026 · Al Marwan Developments
 
 Bilingual (EN / AR, RTL) registration landing page for the **Sharjah Investment Forum 2026** (14–15 October 2026, JRCC, Sharjah),
-where Al Marwan Developments is a Silver Sponsor. Same layout system as the Hawa and District 11 pages: Radikal and Noto Kufi Arabic,
+where Al Marwan Developments is a Silver Sponsor at **Stand 4**. Same layout system as the Hawa and District 11 pages: Radikal and Noto Kufi Arabic,
 the Al Marwan brand palette (a green-to-beige page gradient), thin-line forms. The only logos are Al Marwan (English or Arabic, following the page language) and SIF.
 
 ## Files

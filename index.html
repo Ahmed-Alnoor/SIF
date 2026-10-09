@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Register for SIF 2026 | Al Marwan Developments, Silver Sponsor</title>
-<meta name="description" content="Register for the Sharjah Investment Forum 2026, 14–15 October at JRCC, Sharjah. Al Marwan Developments is proud to be a Silver Sponsor.">
+<meta name="description" content="Register for the Sharjah Investment Forum 2026, 14–15 October at JRCC, Sharjah. Al Marwan Developments is proud to be a Silver Sponsor. Visit us at Stand 4.">
 <meta name="theme-color" content="#BBCF86">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Register for the Sharjah Investment Forum 2026">
@@ -122,11 +122,14 @@ html[lang=ar] .disp .cap{font:300 clamp(3rem,11vw,5.4rem)/1.3 var(--ar)}
 .k{font:500 9.5px/1.3 var(--font);letter-spacing:.22em;text-transform:uppercase;color:var(--bronze)}
 html[lang=ar] .k{font:500 12.5px/1.4 var(--ar)}
 
-.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-width:560px;margin-top:clamp(26px,3.6vh,40px);border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-width:660px;margin-top:clamp(26px,3.6vh,40px);border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
 .fact{display:flex;flex-direction:column;gap:9px;min-width:0;padding-block:18px 20px;padding-inline:0 14px}
 .fact+.fact{padding-inline-start:18px;border-inline-start:1px solid var(--line-2)}
 .fact b{font:200 clamp(2.1rem,2vw + 1.2rem,3.3rem)/1 var(--font);color:var(--ink);white-space:nowrap}
 .fact small{font-size:13.5px;line-height:1.5;color:var(--ink-2)}
+.facts .fact.fact-stand{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:8px 16px;padding-inline:0;border-inline-start:0;border-top:1px solid var(--line-2)}
+.fact-stand .k{flex-basis:100%}
+@media(min-width:600px){.facts{grid-template-columns:repeat(3,minmax(0,1fr))}.facts .fact.fact-stand{grid-column:auto;flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:9px;padding-inline:18px 0;border-inline-start:1px solid var(--line-2);border-top:0}.fact-stand .k{flex-basis:auto}}
 
 .count{max-width:560px;margin-top:clamp(24px,3.4vh,34px)}
 .cd{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:12px}
@@ -200,7 +203,9 @@ html[lang=ar] .partner .sheen{font-size:14px}
 @media(max-width:599px){.lockup{flex-direction:column;gap:26px}.lk-x{width:56px;height:1px}.lk-amd svg{height:34px}.lk-amd-ar svg{height:40px}.lk-sif svg{height:46px}}
 .partner-q{max-width:46ch;margin-top:clamp(30px,4vw,44px);font:300 clamp(1.08rem,.8vw + .85rem,1.45rem)/1.6 var(--font);color:var(--ink)}
 html[lang=ar] .partner-q{max-width:44ch;font:400 clamp(1.02rem,.7vw + .8rem,1.3rem)/1.9 var(--ar)}
-.partner .btn{margin-top:clamp(26px,3vw,36px)}
+.partner-stand{margin-top:clamp(22px,2.6vw,30px);font:500 10.5px/1.6 var(--font);letter-spacing:.24em;text-transform:uppercase;color:var(--bronze)}
+html[lang=ar] .partner-stand{font:500 13.5px/1.7 var(--ar)}
+.partner .btn{margin-top:clamp(22px,2.6vw,30px)}
 
 /* footer */
 .ftr{padding:28px 0 calc(28px + env(safe-area-inset-bottom));background:var(--green);border-top:1px solid var(--line-2);font-size:12.5px;line-height:1.6;color:var(--ink-2)}
@@ -251,6 +256,7 @@ html[lang=ar] .partner-q{max-width:44ch;font:400 clamp(1.02rem,.7vw + .8rem,1.3r
         <div class="facts rv" style="--d:.45s">
           <div class="fact"><span class="k" data-i18n="k.date">Dates</span><b class="ltr">14–15</b><small data-i18n="date">October 2026</small></div>
           <div class="fact"><span class="k" data-i18n="k.venue">Venue</span><b class="ltr">JRCC</b><small data-i18n="venue">Al Jawaher Reception &amp; Convention Centre, Sharjah</small></div>
+          <div class="fact fact-stand"><span class="k" data-i18n="k.stand">Stand</span><b class="ltr">4</b><small data-i18n="stand">Visit Al Marwan Developments</small></div>
         </div>
         <div class="count rv" style="--d:.55s" id="count">
           <span class="k" data-i18n="k.count">The forum opens in</span>
@@ -260,7 +266,7 @@ html[lang=ar] .partner-q{max-width:44ch;font:400 clamp(1.02rem,.7vw + .8rem,1.3r
             <div><b class="ltr" id="cdM">00</b><span data-i18n="cd.m">Minutes</span></div>
             <div><b class="ltr" id="cdS">00</b><span data-i18n="cd.s">Seconds</span></div>
           </div>
-          <p class="live"><i aria-hidden="true"></i><span data-i18n="live">The forum is open now at JRCC, Sharjah</span></p>
+          <p class="live"><i aria-hidden="true"></i><span data-i18n="live">The forum is open now. Visit us at Stand 4, JRCC.</span></p>
         </div>
       </div>
 
@@ -296,6 +302,7 @@ html[lang=ar] .partner-q{max-width:44ch;font:400 clamp(1.02rem,.7vw + .8rem,1.3r
         <span class="lk-sif" role="img" aria-label="Sharjah Investment Forum" data-i18n-aria="a.sif"><svg aria-hidden="true"><use href="#sif"/></svg></span>
       </div>
       <p class="partner-q rv" style="--d:.2s" data-i18n="p.q">Building the UAE since 1978, Al Marwan Developments is proud to support SIF 2026 as a Silver Sponsor, and to join investors, government and business leaders in building adaptive economies.</p>
+      <p class="partner-stand rv" style="--d:.25s" data-i18n="p.stand">Visit us at Stand 4 · JRCC, Sharjah · <span class="ltr">14–15</span> October</p>
       <a class="btn btn-dark rv" style="--d:.3s" href="#register"><span class="lbl" data-i18n="p.cta">Register now</span><svg class="arr" viewBox="0 0 18 10" fill="none" stroke="currentColor" aria-hidden="true"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a>
     </div>
   </section>
@@ -342,12 +349,14 @@ html[lang=ar] .partner-q{max-width:44ch;font:400 clamp(1.02rem,.7vw + .8rem,1.3r
     "date": "أكتوبر 2026",
     "k.venue": "المكان",
     "venue": "مركز الجواهر للمناسبات والمؤتمرات، الشارقة",
+    "k.stand": "الجناح",
+    "stand": "زوروا المروان للتطوير",
     "k.count": "ينطلق المنتدى خلال",
     "cd.d": "أيام",
     "cd.h": "ساعات",
     "cd.m": "دقائق",
     "cd.s": "ثوانٍ",
-    "live": "المنتدى منعقد الآن في مركز الجواهر، الشارقة",
+    "live": "المنتدى منعقد الآن. زورونا في الجناح رقم <span class=\"ltr\">4</span> بمركز الجواهر.",
     "form.k": "التسجيل",
     "form.t": "احجز مقعدك في المنتدى",
     "form.s": "البريد الإلكتروني ورقم الجوال فقط إلزاميان.",
@@ -360,6 +369,7 @@ html[lang=ar] .partner-q{max-width:44ch;font:400 clamp(1.02rem,.7vw + .8rem,1.3r
     "e.email": "يرجى إدخال بريد إلكتروني صحيح",
     "e.phone": "يرجى إدخال رقم جوال صحيح",
     "p.q": "نبني الإمارات منذ عام <span class=\"ltr\">1978</span>، وتفخر المروان للتطوير بدعم منتدى الشارقة للاستثمار 2026 بصفتها من الرعاة الفضيين، لتنضم إلى المستثمرين وقادة الحكومة والأعمال في بناء اقتصادات مرنة.",
+    "p.stand": "زورونا في الجناح رقم <span class=\"ltr\">4</span> · مركز الجواهر، الشارقة · <span class=\"ltr\">14–15</span> أكتوبر",
     "p.cta": "سجّل الآن",
     "ft.rights": "المروان للتطوير. جميع الحقوق محفوظة.",
     "ft.note": "تفاصيل الفعالية يحددها منظمو المنتدى وقد تتغير."
