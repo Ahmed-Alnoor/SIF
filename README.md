@@ -28,7 +28,7 @@ Edit `CONFIG` at the top of the `<script>` in `index.html`:
 | `formEndpoint` | URL that receives registrations (e.g. the Google Apps Script below). **Empty for now: demo mode.** Registrations are not saved (they are logged in the browser console), but the redirect to the thank-you page still happens so the flow can be tried. |
 | `thankYouPage` | `thank-you.html`. |
 | `metrikaId` | Yandex Metrika counter number, if you paste its tag. Registrations reach the goal `lead`. |
-| `eventStart` / `eventEnd` | Countdown target (set to 09:00 GST on 14 October; change it if doors open at a different time). During the forum the countdown becomes "open now", and afterwards it is hidden. |
+| `eventStart` / `eventEnd` | Countdown target: the start of 14 October (00:00 GST). During the forum the countdown becomes "open now", and afterwards it is hidden. |
 
 Paste your tracking tags (GTM, Meta Pixel, Metrika, Snap, TikTok) between the `TRACKING` comments in the `<head>` of **both** files.
 
