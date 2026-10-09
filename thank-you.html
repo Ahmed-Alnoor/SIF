@@ -39,7 +39,7 @@ p,h1,h2{margin:0}
 .ar-first [data-l=en],.ty:not(.ar-first) [data-l=ar]{display:none}
 .sponsor{display:inline-flex;align-items:center;gap:12px;margin-top:18px}
 .sponsor:before,.sponsor:after{content:"";width:26px;height:1px;background:var(--gray)}
-.sheen{font:500 10.5px/1.4 var(--font);letter-spacing:.3em;text-transform:uppercase;color:#4A4C4B;background:linear-gradient(100deg,#4A4C4B 0%,#4A4C4B 38%,#D9DADA 50%,#4A4C4B 62%,#4A4C4B 100%) 0 0/300% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:sheen 6s var(--out) 1.2s infinite}
+.sheen{font:500 10.5px/1.4 var(--font);letter-spacing:.3em;text-transform:uppercase;color:#4A4C4B;background:linear-gradient(100deg,#4A4C4B 0%,#4A4C4B 38%,#D9DADA 50%,#4A4C4B 62%,#4A4C4B 100%) 0 0/300% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:sheen 6s var(--out) 1.2s 1}
 .sheen[lang=ar]{font:500 13px/1.5 var(--ar)}
 .sponsor i{width:1px;height:12px;background:var(--line-2)}
 @keyframes sheen{0%{background-position:100% 0}55%,to{background-position:0 0}}
@@ -82,7 +82,7 @@ h1,h2{font:100 clamp(2.9rem,8vw,4.8rem)/1 var(--font);letter-spacing:.03em;text-
 .cal-menu a{display:flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;font:500 11px/1.2 var(--font);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;color:var(--ink)}
 .cal-menu a:hover{background:#d2bca159;color:var(--bronze)}
 .back{display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:8px 4px;font:500 10.5px/1.2 var(--font);letter-spacing:.2em;text-transform:uppercase;color:var(--ink-2);transition:color .3s}
-.back:hover{color:var(--bronze)}
+.back:hover{color:var(--brown)}
 .back .ar{font:500 12.5px/1.2 var(--ar);letter-spacing:0;padding-inline-start:10px;border-inline-start:1px solid currentColor}
 .back svg{width:18px;height:10px;transition:transform .6s var(--out)}
 .back:hover svg{transform:translate(-4px)}
@@ -182,7 +182,11 @@ h1,h2{font:100 clamp(2.9rem,8vw,4.8rem)/1 var(--font);letter-spacing:.03em;text-
 
   var btn = $("calBtn"), menu = $("calMenu");
   function setMenu(open) { menu.hidden = !open; btn.setAttribute("aria-expanded", open ? "true" : "false"); }
-  btn.addEventListener("click", function (e) { e.stopPropagation(); setMenu(menu.hidden); });
+  btn.addEventListener("click", function (e) {
+    e.stopPropagation(); setMenu(menu.hidden);
+    if (!menu.hidden && menu.getBoundingClientRect().bottom > innerHeight)
+      menu.scrollIntoView({ block: "nearest", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  });
   document.addEventListener("click", function (e) { if (!menu.hidden && !menu.contains(e.target)) setMenu(false); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") setMenu(false); });
 
